@@ -16,9 +16,9 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
-    setValue(newValue);
-    setCollapsed(newValue);
+    onChange(newValue); // Le parent reçoit la valeur sélectionnée et peut l'utiliser.
+    setValue(newValue); // mise à jour de la valeur "value" avec la nouvelle valeur.
+    setCollapsed(newValue); // mise à jour de "collapsed" avec la nouvelle valeur.
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
@@ -68,6 +68,7 @@ const Select = ({
 
 const Arrow = () => (
   <svg
+    cursor="pointer"/*cursor pointer ajouter */
     width="21"
     height="11"
     viewBox="0 0 21 11"
