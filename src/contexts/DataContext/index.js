@@ -45,7 +45,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
-        last, // ajout de la value "last".
+        last,
       }}
     >
       {children}
