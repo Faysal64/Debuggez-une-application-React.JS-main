@@ -20,7 +20,7 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const last = useMemo(() => {
+  const dernierEvent  = useMemo(() => {
     if (!data) return null;
     return data.events?.reduce((mostRecent, event) => {
       if (!mostRecent) return event;
@@ -45,7 +45,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
-        last,
+        dernierEvent ,
       }}
     >
       {children}

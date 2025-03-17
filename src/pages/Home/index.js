@@ -14,7 +14,7 @@ import ModalEvent from "../../containers/ModalEvent";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const {dernierEvent } = useData()
   return <>
     <header>
       <Menu />
@@ -23,7 +23,7 @@ const Page = () => {
       <section className="SliderContainer">
         <Slider />
       </section>
-      <section className="ServicesContainer">
+      <section id="nos-services" className="ServicesContainer">
         <h2 className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
@@ -52,11 +52,11 @@ const Page = () => {
           </ServiceCard>
         </div>
       </section>
-      <section className="EventsContainer">
+      <section id="nos-realisations" className="EventsContainer">
         <h2 className="Title">Nos réalisations</h2>
         <EventList />
       </section>
-      <section className="PeoplesContainer">
+      <section id="notre-equipe" className="PeoplesContainer">
         <h2 className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
@@ -115,24 +115,24 @@ const Page = () => {
       </div>
     </main>
     <footer className="row">
-    { last && ( 
-      // Ajout de last, modal et modalEvent
+    { dernierEvent  && ( 
+      // Ajout de dernierEvent, modal et modalEvent
       <div data-testid="event-card" className="col presta">
         <h3>Notre dernière prestation</h3>
-          {!last ? (
+          {!dernierEvent  ? (
             "On attends le dernier events"
           ) : (
-            <Modal key={last.id} Content={
-            <ModalEvent event={last} />}>
+            <Modal key={dernierEvent .id} Content={
+            <ModalEvent event={dernierEvent } />}>
               {({ setIsOpened }) => (
                 <div data-testid="event-card">
                   <EventCard
                     onClick={() => setIsOpened(true)}
-                    imageSrc={last?.cover}
-                    title={last?.title}
-                    date={new Date(last?.date)}
+                    imageSrc={dernierEvent ?.cover}
+                    title={dernierEvent ?.title}
+                    date={new Date(dernierEvent ?.date)}
                     small
-                    label={last?.type}
+                    label={dernierEvent ?.type}
                   />
                 </div>
               )}
