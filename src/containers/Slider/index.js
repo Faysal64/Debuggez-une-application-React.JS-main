@@ -9,7 +9,7 @@ const Slider = () => {
   const [index, setIndex] = useState(0);
 
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    new Date(evtA.date) < new Date(evtB.date) ? 1: -1
   ) || [];
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <div
-          key={event.id} // Utiliser event.id ici pour une clé unique
+          key={event.title} 
           className={`SlideCard SlideCard--${index === idx ? "display" : "hide"}`}
         >
           <img src={event.cover} alt="forum" />
@@ -43,10 +43,11 @@ const Slider = () => {
         <div className="SlideCard__pagination">
           {byDateDesc.map((event, radioIdx) => (
             <input
-              key={event.id} // Utiliser event.id ici aussi
+              key={event.title}// Utiliser event.id faux event n'a pas d'id
               type="radio"
               name="radio-button"
               checked={index === radioIdx}
+              readOnly
             />
           ))}
         </div>

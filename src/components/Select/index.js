@@ -18,7 +18,7 @@ const Select = ({
   const changeValue = (newValue) => {
     onChange(newValue); // Le parent reçoit la valeur sélectionnée et peut l'utiliser.
     setValue(newValue); // mise à jour de la valeur "value" avec la nouvelle valeur.
-    setCollapsed(newValue); // mise à jour de "collapsed" avec la nouvelle valeur.
+    setCollapsed(true); // mise à jour de "collapsed" avec la nouvelle valeur.
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
