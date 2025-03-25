@@ -38,7 +38,7 @@ const Slider = () => {
         </div>
       ))}
 
-      {/* Déplacer la pagination en dehors de la boucle map */}
+      
       <div className="SlideCard__paginationContainer">
         <div className="SlideCard__pagination">
           {byDateDesc.map((event, radioIdx) => (
